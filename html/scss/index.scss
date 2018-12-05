@@ -9,52 +9,99 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+.bx{
+	position: absolute;
+	left:100px;
+	top:100px;
+	width:100px;
+	height:100px;
+	// background-color:#333;
+	border:1px solid #333;
+	font-size:30px;
+	// transform:perspective(500px) translate3d(0, 10px 0);
+	transform: translate3d(10px, 10px, 0) rotateX(50deg);
+	transition:all .5s;
+	perspective: 150px;
+	perspective-orgin: 50% 50%;
+	&:hover{
+		transform: translate3d(10px, 10px, 0) rotateX(0deg);
+	}
+}
 
 .wrap_btn{
 	padding:200px 0;
 	text-align: center;
 	.lst_btn{
+		position: absolute;
+		right:100px;
+		top:100px;
+		text-align: right;
 		li{
-			margin-bottom: 50px;
+			margin-bottom: 30px;
+			position: relative;
+			line-height: 16px;
+			a{
+				color:#333;
+				font-weight: bold;
+				position: relative;
+				&:after{
+					content:"";
+					display: inline-block;
+					width:16px;
+					height:16px;
+					margin-left:7px;
+					vertical-align: top;
+					border:1px solid #000;
+					border-radius: 50%;
+				}
+			}
 		}
 	}
 }
 
 .ani_twave{
-	display: inline-block;
+	$speed : .6s;
+	$easing : cubic-bezier(0.550, 0.055, 0.675, 0.190);
 	position: relative;
-	overflow: visible;
+	display: inline-block;
 	line-height: 1;
-	&:after{
-		content:"";
-		display: block;
-		width:20px;
-		height:20px;
-		border:1px solid #000;
-		border-radius: 50%;
-		position:absolute;
-		right:-20px;
-		top:50%;
-		transform: translateY(-50%);
-	}
-	p{
+	font-size:0;
+	> p {
+		display: inline-block;
 		font-size:0;
+		transition: opacity .5s;
+		-webkit-transition: opacity .5s;
+		opacity: 0;
 		span{
 			display: inline-block;
-			// transform: translateY(5px);
-			transition: all .7s;
 			font-size:16px;
 			opacity: 0;
+			visibility: hidden;
+
+			// hover off
+			transition: opacity .5s , visibility .5s;
 		}
 	}
-	// &:hover{
-	// 	p{
-	// 		span{
-	// 			transform:translate3d(0, 0, 0) !important;
-	// 			opacity: 1;
-	// 		}
-	// 	}
-	// }
+
+	&.active{
+		> p {
+			opacity: 1;
+			span{
+				opacity: 1;
+				visibility: visible;
+				transform: translate3d(0, 0, 0) rotateX(0) !important;
+
+				transition: all .5s ease-in-out;
+
+				// hover on
+				// transition: transform .5s;
+				// -webkit-transition: transform .5s;
+				// animation-name: wave;
+				// animation-duration: $speed;
+				// animation-fill-mode: forwards;
+			}
+		}
+	}
 }
 
 .btn{
@@ -121,15 +168,10 @@ body {
 
 @keyframes wave {
 	0%{
-		bottom:100%;
-		border-radius:50%;
-	}
-	40%{
-		// border-radius:50%;
+		transform: translate3d(0px, 50px, 0px) rotateX(90deg);
 	}
 	100%{
-		bottom:0;
-		// border-radius:0;
+		transform: translate3d(0, 0, 0) rotateX(0) !important;
 	}
 }
 
