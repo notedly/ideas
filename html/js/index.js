@@ -2,6 +2,17 @@ import React , { Component } from 'react' ;
 import ReactDOM , { render } from 'react-dom' ;
 // import { CustomSelectBox } from './ui/common' ;
 
+
+/*
+	움직임은 css
+	js는 컨트롤만!
+
+
+	svg animation
+	https://codepen.io/manpreet/pen/KwgBJN
+*/
+
+
 const Twave = (() => {
 
 	/*const comn = {
@@ -33,8 +44,6 @@ const Twave = (() => {
 				this.render() ;
 				this.evtSet() ;
 
-				console.log( opts ) ;
-
 			}	// end of constructor
 
 			render(){
@@ -62,13 +71,15 @@ const Twave = (() => {
 				// if( this.opts.dir == 'down' ) dir = -1 ;
 				if( this.tag.tg.classList.contains('wave_down') ) dir = -1 ;
 				[].forEach.call( this.tag.txt, (t ,idx) => {
-					t.style.transform = 'translate3d(0, ' + ( this.val.bot + idx * this.val.btw ) * dir + 'px, 0) rotateX(90deg)';
+					t.style.transform = 'translate3d(0, ' + ( this.val.bot + idx * this.val.btw ) * dir + 'px, 0)';
 					// t.style.animationDuration = '0.' + idx + 's';
 				}) ;
 			}
 
 			evtSet(){
+
 				let _this = this ;
+
 				this.tag.tg.addEventListener( 'mouseenter', function(){
 					_this.activeTxt() ;
 				}) ;
@@ -76,6 +87,12 @@ const Twave = (() => {
 				this.tag.tg.addEventListener( 'mouseleave', function(e){
 					_this.deActiveTxt() ;
 				}) ;
+
+				/*this.tag.tg.addEventListener( 'webkitTransitionEnd', function(evt) {
+					console.log( evt.propertyName ) ;
+				})*/
+
+
 			}
 
 			activeTxt(){
@@ -119,6 +136,7 @@ window.addEventListener('load', () => {
 
 	Twave() ;
 	// Twave({ dir : 'down' }) ;
+
 
 }) ;
 

@@ -9,24 +9,6 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.bx{
-	position: absolute;
-	left:100px;
-	top:100px;
-	width:100px;
-	height:100px;
-	// background-color:#333;
-	border:1px solid #333;
-	font-size:30px;
-	// transform:perspective(500px) translate3d(0, 10px 0);
-	transform: translate3d(10px, 10px, 0) rotateX(50deg);
-	transition:all .5s;
-	perspective: 150px;
-	perspective-orgin: 50% 50%;
-	&:hover{
-		transform: translate3d(10px, 10px, 0) rotateX(0deg);
-	}
-}
 
 .wrap_btn{
 	padding:200px 0;
@@ -69,9 +51,6 @@ body {
 	> p {
 		display: inline-block;
 		font-size:0;
-		transition: opacity .5s;
-		-webkit-transition: opacity .5s;
-		opacity: 0;
 		span{
 			display: inline-block;
 			font-size:16px;
@@ -79,17 +58,16 @@ body {
 			visibility: hidden;
 
 			// hover off
-			transition: opacity .5s , visibility .5s;
+			transition: opacity .5s ease-in-out;
 		}
 	}
 
 	&.active{
 		> p {
-			opacity: 1;
 			span{
 				opacity: 1;
 				visibility: visible;
-				transform: translate3d(0, 0, 0) rotateX(0) !important;
+				transform: translate3d(0, 0, 0) !important;
 
 				transition: all .5s ease-in-out;
 
