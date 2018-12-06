@@ -10,6 +10,8 @@ import ReactDOM , { render } from 'react-dom' ;
 
 	svg animation
 	https://codepen.io/manpreet/pen/KwgBJN
+	https://www.tutorialspoint.com/svg/svg_rect.htm
+	https://codepen.io/jorgeatgu/pen/bEEemM
 */
 
 
@@ -72,9 +74,8 @@ const Twave = (() => {
 				if( this.tag.tg.classList.contains('wave_down') ) dir = -1 ;
 				[].forEach.call( this.tag.txt, (t ,idx) => {
 					t.style.transform = 'translate3d(0, ' + ( this.val.bot + idx * this.val.btw ) * dir + 'px, 0)';
-					// t.style.animationDuration = '0.' + idx + 's';
 				}) ;
-			}
+			}	// end of
 
 			evtSet(){
 
@@ -137,6 +138,11 @@ window.addEventListener('load', () => {
 	Twave() ;
 	// Twave({ dir : 'down' }) ;
 
+	let btn = document.querySelector('.btn_link') ;
+	btn.addEventListener('mouseenter', function(){
+		// console.log( 'in' , document.querySelector('#aniSvg')) ;
+		document.querySelector('#aniSvg').beginElement();
+	})
 
 }) ;
 
