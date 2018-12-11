@@ -1,12 +1,28 @@
 @charset 'UTF-8' ;
 @import './ui/layout';
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+// @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
 
 html, body{
 	height : 100%;
 }
 body {
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: Helvetica, arial, sans-serif;
+}
+
+.bx_ani{
+	width:100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.bx{
+	position: relative;
+	text-align: center;
+	padding:100px 20px;
+	border-bottom:1px solid #333;
 }
 
 
@@ -41,56 +57,6 @@ body {
 	}
 }
 
-.ani_twave{
-	$speed : .6s;
-	$easing : cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	position: relative;
-	display: inline-block;
-	line-height: 1;
-	font-size:0;
-	> p {
-		display: inline-block;
-		font-size:0;
-		opacity: 0;
-		span{
-			display: inline-block;
-			font-size:16px;
-			opacity: 0;
-			visibility: hidden;
-
-			// hover off
-			transition: opacity .5s ease-in-out;
-		}
-	}
-
-	&.active{
-		> p {
-			opacity: 1;
-			span{
-				opacity: 1;
-				visibility: visible;
-				transform: translate3d(0, 0, 0) !important;
-				transition: all .5s ease-in-out;
-
-				// hover on
-				// transition: transform .5s;
-				// -webkit-transition: transform .5s;
-				// animation-name: wave;
-				// animation-duration: $speed;
-				// animation-fill-mode: forwards;
-			}
-		}
-	}
-
-	&.deactive{
-		> p{
-			span{
-				opacity: 0;
-				transition: opacity .5s ease-in-out;
-			}
-		}
-	}
-}
 
 .btn{
 	$speed : .5s;
@@ -194,3 +160,235 @@ body {
      d: path('M425,225 L475,275 L575,175 L675,275 L775,175 L875,275 L925,225');
   }
 }
+
+.ani_twave_2{
+	&.btn_link{
+		display: inline-block;
+		border:1px solid #000;
+		padding:2em;
+		font-size:.5em;
+		span{
+			font-size:20px;
+		}
+	}
+}
+
+/* ani_twave_1 */
+.ani_twave_1{
+	$moveValue : 30px;
+	$moveSpeed : .3s;
+	font-size:0;
+	> div {
+		font-size:0;
+		transition:opacity $moveSpeed;
+		> span {
+			display: inline-block;
+			min-width:.4em;
+			color:#000;
+			font-weight:bold;
+			font-size:45px;
+			opacity: 0;
+			transition:opacity $moveSpeed;
+			transform:translateY($moveValue);
+		}
+	}
+	&.active{
+		> div {
+			opacity: 1;
+			> span {
+				animation-name : twave;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-out;
+			}
+		}
+	}
+	@keyframes twave {
+		0%{
+			transform:translateY($moveValue);
+			opacity: 0;
+		}
+		100%{
+			transform:translateY(0px);
+			opacity: 1;
+		}
+	}
+}
+/* ani_twave_2 */
+.ani_twave_2{
+	$moveValue : 10px;
+	$moveSpeed : .3s;
+	font-size:0;
+	> div {
+		font-size:0;
+		> span {
+			display: inline-block;
+			min-width:.4em;
+			color:#000;
+			font-weight:bold;
+			font-size:45px;
+			transform:translateY(0px);
+			transition-property: all;
+			transition-duration: $moveSpeed ;
+			transition-timing-function: ease-in-out;
+		}
+	}
+	&.active{
+		> div {
+			> span {
+				transform:translateY($moveValue);
+				opacity: 0;
+				animation-name : twave2;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-in-out;
+			}
+		}
+	}
+	@keyframes twave2 {
+		0%{
+			transform:translateY(-$moveValue);
+			opacity: 0;
+		}
+		100%{
+			transform:translateY(0px);
+			opacity: 1;
+		}
+	}
+}
+/* ani_bwave */
+.ani_bwave{
+	$moveValue : 10px;
+	$moveSpeed : .3s;
+	font-size:0;
+	> div {
+		font-size:0;
+		> span {
+			display: inline-block;
+			min-width:.4em;
+			color:#000;
+			font-weight:bold;
+			font-size:45px;
+			transform:translateY(0px);
+			transition-property: all;
+			transition-duration: $moveSpeed ;
+			transition-timing-function: ease-in-out;
+		}
+	}
+	&.active{
+		> div {
+			> span {
+				transform:translateY($moveValue);
+				opacity: 0;
+				animation-name : twave2;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-in-out;
+			}
+		}
+	}
+	@keyframes twave2 {
+		0%{
+			transform:translateY(-$moveValue);
+			opacity: 0;
+		}
+		100%{
+			transform:translateY(0px);
+			opacity: 1;
+		}
+	}
+}
+
+/* ani_bwave */
+.ani_bwave_2{
+	$moveValue : 10px;
+	$moveSpeed : .3s;
+	font-size:0;
+	position: relative;
+	svg{
+		width:100%;
+		height:100%;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	> div {
+		font-size:0;
+		> span {
+			display: inline-block;
+			min-width:.4em;
+			color:#000;
+			font-weight:bold;
+			font-size:45px;
+			transform:translateY(0px);
+			transition-property: all;
+			transition-duration: $moveSpeed ;
+			transition-timing-function: ease-in-out;
+		}
+	}
+	&.active{
+		> div {
+			> span {
+				transform:translateY($moveValue);
+				opacity: 0;
+				animation-name : twave2;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-in-out;
+			}
+		}
+	}
+	@keyframes twave2 {
+		0%{
+			transform:translateY(-$moveValue);
+			opacity: 0;
+		}
+		100%{
+			transform:translateY(0px);
+			opacity: 1;
+		}
+	}
+}
+
+/*
+.ani_bwave{
+	$moveValue : 10px;
+	$moveSpeed : 1.4s;
+	position: relative;
+	// overflow: hidden;
+	&:before{
+		content:"";
+		display: block;
+		position:absolute;
+		left:50%; bottom:100%;
+		transform:translateX(-50%);
+		width:200px;
+		height:200px;
+		border-radius:80%;
+		background-color:#000;
+		// transition:all .3s;
+
+
+		animation-duration: $moveSpeed;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-in-out;
+	}
+	&:hover:before{
+		animation-name : twave3;
+	}
+	@keyframes twave3 {
+		0%{
+			bottom:100%;
+			border-radius: 50%;
+		}
+		50%{
+			bottom:50%;
+			border-radius: 70%;
+		}
+		100%{
+			bottom:0%;
+			border-radius: 0;
+		}
+	}
+}
+ */
