@@ -244,14 +244,14 @@ window.addEventListener('load', () => {
 
 	Twave() ;
 	Twave2() ;
-	Bwave() ;
+	// Bwave() ;
 
 
-	let btn = document.querySelector('.btn_link') ;
-	btn.addEventListener('mouseenter', function(){
-		// console.log( 'in' , document.querySelector('#aniSvg')) ;
-		document.querySelector('#aniSvg').beginElement();
-	})
+	// let btn = document.querySelector('.btn_link') ;
+	// btn.addEventListener('mouseenter', function(){
+	// 	// console.log( 'in' , document.querySelector('#aniSvg')) ;
+	// 	document.querySelector('#aniSvg').beginElement();
+	// })
 
 
 
