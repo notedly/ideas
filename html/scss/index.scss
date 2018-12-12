@@ -1,10 +1,75 @@
 @charset 'UTF-8' ;
 @import './ui/layout';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+@import url('https://use.fontawesome.com/releases/v5.6.0/css/all.css');
 
 html, body{
 	height : 100%;
 }
 body {
 	font-family: 'Noto Sans KR', sans-serif;
+	font-size:14px;
+}
+
+/*
+https://css-tricks.com/on-target/
+*/
+
+/* .wrap {
+	> dl{
+		position: absolute;
+		left:50%;
+		top:50%;
+		transform:translate( -50%, -50% );
+		display: none;
+		&:target{
+			display: block;
+		}
+	}
+} */
+
+
+.wrap{
+	width:100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.accordian_wrap{
+		width:300px;
+		height: auto;
+		border-radius:5px;
+		overflow: hidden;
+		dt{
+			a{
+				display: block;
+				padding:1em 1em;
+				background-color: #e15f41;
+				color:#fff;
+				font-weight: bold;
+				i{
+					margin-right: .5em;
+				}
+			}
+			border-top: 1px solid #eee;
+			&:first-child{
+				border-top: 0;
+			}
+		}
+		dd{
+			display: none;
+			padding:1em;
+			background-color:#596275;
+			color:#fff;
+			line-height: 1.7em;
+			font-size:.8em;
+			&:target{
+				display: block;
+				border-top: 1px dashed #333;
+				& + dt{
+					border-top: 0;
+				}
+			}
+		}
+	}
 }
