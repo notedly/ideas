@@ -8,3 +8,33 @@ html, body{
 body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
+
+.container {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate( -50% , -50% );
+   font-family: sans-serif;
+   box-shadow: 0 15px 50px rgba( 0,0,0,0.6 );
+   background-color: #fff;
+   border-radius: 10px;
+   padding: 20px;
+   width: 600px;
+}
+
+.container img {
+   display: inline-block;
+   width: 200px;
+   border-radius: 50%;
+   float: left;
+   // shape-outside: circle();
+   // shape-outside: ellipse(130px 140px at 20% 20%);
+   // shape-margin:20px;
+   margin-right: 30px;
+   margin-bottom: 30px;
+   shape-outside: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.container .desc {
+   display: inline-block;
+}
