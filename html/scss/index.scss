@@ -25,156 +25,8 @@ body {
 	border-bottom:1px solid #333;
 }
 
-
-.wrap_btn{
-	padding:200px 0;
-	text-align: center;
-	.lst_btn{
-		position: absolute;
-		right:100px;
-		top:100px;
-		text-align: right;
-		li{
-			margin-bottom: 30px;
-			position: relative;
-			line-height: 16px;
-			a{
-				color:#333;
-				font-weight: bold;
-				position: relative;
-				&:after{
-					content:"";
-					display: inline-block;
-					width:16px;
-					height:16px;
-					margin-left:7px;
-					vertical-align: top;
-					border:1px solid #000;
-					border-radius: 50%;
-				}
-			}
-		}
-	}
-}
-
-
-.btn{
-	$speed : .5s;
-	$default-color : #333;
-	position: relative;
-	display: inline-block;
-	padding:1.5em 3em;
-	border:1px solid $default-color;
-	color:$default-color;
-	overflow: hidden;
-	font-weight: bold;
-	&.ani_default{
-		transition:color $speed;
-		&:before{
-			content:"";
-			display: block;
-			position: absolute;
-			left:0;
-			bottom:100%;
-			width:100%;
-			height:100%;
-			background-color: $default-color;
-			transition:bottom $speed;
-			z-index: -1;
-		}
-		&:hover{
-			color:#fff;
-			&:before{
-				bottom:0;
-			}
-		}
-	}
-/* 	&.wave{
-	$speed : .6s;
-	$easing : cubic-bezier(0.550, 0.055, 0.675, 0.190);
-	transition:all $speed $easing;
-	overflow: visible;
-	// overflow: hidden;
-	&:before{
-		content: "";
-		display: block;
-		position: absolute;
-		left:50%;
-		bottom:100%;
-		background-color: #333;
-		width:150px;
-		height:150px;
-		transform: scale(1) translateX(-50%);
-		transition:all $speed;
-		border-radius: 50%;
-	}
-	&:hover{
-		&:before{
-			// top:0;
-			// border-radius: 0;
-			animation-name: wave;
-			animation-duration: $speed;
-			animation-fill-mode: forwards;
-		}
-	}
-} */
-}
-body {
-  // background-color: #022040;
-}
-
-#path {
-  d: path('M425,225 L475,275 L575,175 L675,275 L775,175 L875,275 L925,225');
-  stroke: #1EFE64;
-  fill: none;
-  animation-name: path;
-  animation-duration: 5s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-}
-
-
-@keyframes path {
-
-  0% {
-     d: path('M425,225 L475,275');
-  }
-
-  25% {
-     d: path('M425,225 L475,275 L575,175 L575,175 L575,175 L575,175 L575,175');
-  }
-
-  50% {
-     d: path('M425,225 L475,275 L575,175 L675,275 L675,275 L675,275 L675,275');
-  }
-
-  75% {
-     d: path('M425,225 L475,275 L575,175 L675,275 L775,175 L775,175 L775,175');
-  }
-
-  90% {
-     d: path('M425,225 L475,275 L575,175 L675,275 L775,175 L875,275 L875,275');
-  }
-
-  100% {
-     d: path('M425,225 L475,275 L575,175 L675,275 L775,175 L875,275 L925,225');
-  }
-}
-
-.ani_twave_2{
-	&.btn_link{
-		display: inline-block;
-		border:1px solid #000;
-		padding:2em;
-		font-size:.5em;
-		span{
-			font-size:20px;
-		}
-	}
-}
-
-/* ani_twave_1 */
-.ani_twave_1{
+/* twave1 */
+.twave1{
 	$moveValue : 30px;
 	$moveSpeed : .3s;
 	font-size:0;
@@ -203,6 +55,17 @@ body {
 			}
 		}
 	}
+	&.hasEvt:hover{
+		> div {
+			opacity: 1;
+			> span {
+				animation-name : twave;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-out;
+			}
+		}
+	}
 	@keyframes twave {
 		0%{
 			transform:translateY($moveValue);
@@ -214,8 +77,9 @@ body {
 		}
 	}
 }
-/* ani_twave_2 */
-.ani_twave_2{
+
+/* twave2 */
+.twave2{
 	$moveValue : 10px;
 	$moveSpeed : .3s;
 	font-size:0;
@@ -245,6 +109,18 @@ body {
 			}
 		}
 	}
+	&.hasEvt:hover{
+		> div {
+			> span {
+				transform:translateY($moveValue);
+				opacity: 0;
+				animation-name : twave2;
+				animation-duration: $moveSpeed;
+				animation-fill-mode: forwards;
+				animation-timing-function: ease-in-out;
+			}
+		}
+	}
 	@keyframes twave2 {
 		0%{
 			transform:translateY(-$moveValue);
@@ -257,8 +133,8 @@ body {
 	}
 }
 
-/* ani_bwave */
-.ani_bwave{
+/* bwave1 */
+.bwave1{
 	$moveValue : 10px;
 	$moveSpeed : .2s;
 	position: relative;
@@ -282,19 +158,14 @@ body {
 		border-radius:0 0 50% 50%;
 		z-index: -1;
 		transition: height .3s,	border-radius .2s;
-
-		// height:100%;
-		// border-radius: 0;
-		// top:50%;
-		// background-color:rgba(0 , 0, 0 , 0.5);
 	}
 	&:hover:before{
 		height:200%;
 		border-radius:0 0 0 0;
 		transition: height .4s cubic-bezier(0.55, 0.055, 0.675, 0.19),
-						border-radius .3s .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+						border-radius .3s .3s;
 	}
-	&.ani_twave_2{
+	&.twave2{
 		font-size:0;
 		> div {
 			> span {
@@ -369,46 +240,3 @@ body {
 		}
 	}
 }
-
-/*
-.ani_bwave{
-	$moveValue : 10px;
-	$moveSpeed : 1.4s;
-	position: relative;
-	// overflow: hidden;
-	&:before{
-		content:"";
-		display: block;
-		position:absolute;
-		left:50%; bottom:100%;
-		transform:translateX(-50%);
-		width:200px;
-		height:200px;
-		border-radius:80%;
-		background-color:#000;
-		// transition:all .3s;
-
-
-		animation-duration: $moveSpeed;
-		animation-fill-mode: forwards;
-		animation-timing-function: ease-in-out;
-	}
-	&:hover:before{
-		animation-name : twave3;
-	}
-	@keyframes twave3 {
-		0%{
-			bottom:100%;
-			border-radius: 50%;
-		}
-		50%{
-			bottom:50%;
-			border-radius: 70%;
-		}
-		100%{
-			bottom:0%;
-			border-radius: 0;
-		}
-	}
-}
- */

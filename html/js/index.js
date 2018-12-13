@@ -23,12 +23,7 @@ import ReactDOM , { render } from 'react-dom' ;
 */
 
 
-const Twave = (() => {
-
-	/*const comn = {
-		selectBoxAll : [] ,
-		activeClass : 'active' ,
-	} ;*/
+const Twave1 = (() => {
 
 	const TwaveWrap = ( tg, opts ) => {
 
@@ -76,9 +71,8 @@ const Twave = (() => {
 					let delay = ( ( idx + 1 ) * 0.02 ).toFixed(2) * 1;
 					console.log( 'delay : ', delay  ) ;
 					t.style.animationDelay = delay + 's';
-					// t.style.transform = 'translate3d(0, ' + ( this.val.bot + idx * this.val.btw ) * dir + 'px, 0)';
 				}) ;
-			}	// end of
+			}	// end of posReset
 
 		} // end of SelectBox
 
@@ -87,7 +81,7 @@ const Twave = (() => {
 
 	return ( option ) => {
 
-		let tg = document.querySelectorAll('.ani_twave_1')
+		let tg = document.querySelectorAll('.twave1')
 		,	 opts = option || {};
 
 		[].forEach.call( tg, item => TwaveWrap( item, opts ) ) ;
@@ -162,7 +156,7 @@ const Twave2 = (() => {
 
 	return ( option ) => {
 
-		let tg = document.querySelectorAll('.ani_twave_2')
+		let tg = document.querySelectorAll('.twave2')
 		,	 opts = option || {};
 
 		[].forEach.call( tg, item => TwaveWrap( item, opts ) ) ;
@@ -230,7 +224,7 @@ const Bwave = (() => {
 
 	return ( option ) => {
 
-		let tg = document.querySelectorAll('.ani_bwave')
+		let tg = document.querySelectorAll('.bwave1')
 		,	 opts = option || {};
 
 		[].forEach.call( tg, item => TwaveWrap( item, opts ) ) ;
@@ -242,18 +236,9 @@ const Bwave = (() => {
 
 window.addEventListener('load', () => {
 
-	Twave() ;
+	Twave1() ;
 	Twave2() ;
 	// Bwave() ;
-
-
-	// let btn = document.querySelector('.btn_link') ;
-	// btn.addEventListener('mouseenter', function(){
-	// 	// console.log( 'in' , document.querySelector('#aniSvg')) ;
-	// 	document.querySelector('#aniSvg').beginElement();
-	// })
-
-
 
 }) ;
 
