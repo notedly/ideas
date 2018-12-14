@@ -25,6 +25,7 @@ app.get( '/' , ( req , res ) => res.render( 'index' , {}) ) ;
 app.get( '/text_wave_01' , ( req , res ) => res.render( 'text_wave_01' , {}) ) ;
 app.get( '/text_wave_02' , ( req , res ) => res.render( 'text_wave_02' , {}) ) ;
 app.get( '/box_wave' , ( req , res ) => res.render( 'box_wave' , {}) ) ;
+app.get( '/hover_animation' , ( req , res ) => res.render( 'hover_animation' , {}) ) ;
 
 /* Server */
 const server = app.listen( DIR.PORT , () => {
