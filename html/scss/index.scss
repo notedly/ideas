@@ -8,3 +8,33 @@ html, body{
 body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
+
+.slider_wrap{
+	width:100%; height:100%;
+	display: flex;
+	flex-direction: row;
+	.item {
+		flex-grow: 1;
+		transition-property:flex;
+		transition-duration: .5s;
+		background-position:center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		font-size:20px;
+		color:#fff;
+		text-align:center;
+		-webkit-box-shadow: -5px 0px 15px 2px rgba(0,0,0,0.43);
+		-moz-box-shadow: -5px 0px 15px 2px rgba(0,0,0,0.43);
+		box-shadow: -5px 0px 15px 2px rgba(0,0,0,0.43);
+
+		@for $i from 1 through 10 {
+		  &:nth-child( #{$i} ){
+		  		background-image: url(https://picsum.photos/1000/1000?image=#{$i});
+		  }
+		}
+
+		&:hover{
+			flex-grow:15;
+		}
+	}
+}
