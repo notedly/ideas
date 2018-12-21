@@ -3,8 +3,48 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
 
 html, body{
+	width:100%;
 	height : 100%;
+}
+html{
+	overflow-x: hidden;
+	overflow-y:scroll;
+	scroll-behavior: smooth;
 }
 body {
 	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.wrap{
+	width:100%;
+	height:100%;
+	> .btn_top{
+		display: inline-block;
+		position: fixed;
+		right:50px;
+		bottom:50px;
+		padding:20px;
+		background-color: #fff;
+	}
+	.item{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width:100%;
+		height:100vh;
+		background-size: cover;
+		background-position:center center;
+		background-attachment: fixed;
+		@for $i from 1 through 10 {
+		  &:nth-child( #{$i} ){
+		  		background-image: url(https://picsum.photos/2000/2000?image=#{$i});
+		  }
+		}
+		strong{
+			display: inline-block;
+			padding:3vh;
+			background-color:#fff;
+			border-radius: 5px;
+		}
+	}
 }
