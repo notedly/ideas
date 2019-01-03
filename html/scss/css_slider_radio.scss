@@ -9,3 +9,56 @@ body {
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
+.wrap{
+
+	$slider-width : 600px;
+	$slider-dur : .7s;
+	$slider-easing : cubic-bezier(0.23, 1, 0.32, 1) ;
+
+	height:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.slider{
+		position: relative;
+		width:$slider-width; height:400px;
+		overflow: hidden;
+	}
+	.img{
+		display: flex;
+		transition:transform $slider-dur $slider-easing;
+	}
+	.btns{
+		position: absolute;
+		left:50%;
+		bottom:10px;
+		width:80%;
+		display: flex;
+		transform: translateX(-50%);
+		label{
+			flex:1;
+			height:24px;
+			margin:0 3px;
+			border:1px solid #fff;
+			font-size:0;
+			transition:all .5s;
+			cursor: pointer;
+			&:hover{
+				background-color: #fff;
+			}
+		}
+	}
+
+	input[type=radio]{
+		display: none;
+		position: absolute; left:-9999em; top:-9999em;
+	}
+
+	@for $i from 1 through 5 {
+		input[type=radio]:nth-child(#{$i}):checked ~ ul.img{
+			transform: translateX( -$slider-width * ( $i - 1 ) );
+		}
+	}
+
+
+}
