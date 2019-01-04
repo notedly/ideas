@@ -22,6 +22,7 @@ app.get( '/' , ( req , res ) => {
 /* Routing List ( get ) */
 app.get( '/' , ( req , res ) => res.render( 'index' , {}) ) ;
 app.get( '/css_slider_radio' , ( req , res ) => res.render( 'css_slider_radio' , {}) ) ;
+app.get( '/image_split_slide' , ( req , res ) => res.render( 'image_split_slide' , {}) ) ;
 
 /* Server */
 const server = app.listen( DIR.PORT , () => {
