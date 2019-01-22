@@ -1,0 +1,50 @@
+@charset 'UTF-8' ;
+@import './ui/layout';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+
+html, body{
+	height : 100%;
+}
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.wrap{
+
+	$size : 100px;
+
+	display: grid ;
+	grid-gap: 1em;
+	// grid-template-columns: 100px auto 100px;
+	// grid-template-rows: 100px 100px 100px;
+	// grid-template-columns: repeat( 4 , 100px ) ;
+	// grid-template-columns: $size [col-start] $size [col-start] $size [col-start];
+	// grid-template-columns: 1fr 600px 1fr;
+	grid-template-columns:
+	100px 100px 100px;
+	// 50px auto 100px ;
+			// minmax( 50px, 1fr )
+			// minmax( 0, 600px )
+			// minmax( 50px, 1fr ) ;
+		// [full-start]
+		// 	minmax( 1em, 1fr )
+		// [main-start]
+		// 	minmax( 0, 600px )
+		// [main-end]
+		// 	minmax( 1em, 1fr )
+		// [full-end] ;
+
+	> div {
+		background-color: #eee;
+		// grid-column: main ;
+		&:nth-child(1){
+			grid-column: 1/4;
+		}
+		&.full{
+			background-color: #bbb;
+			// grid-column: full ;
+			// grid-column-start: col-start 2 ;
+		}
+	}
+}

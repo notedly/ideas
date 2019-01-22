@@ -23,6 +23,7 @@ app.get( '/' , ( req , res ) => {
 app.get( '/' , ( req , res ) => res.render( 'index' , {}) ) ;
 app.get( '/css_slider_radio' , ( req , res ) => res.render( 'css_slider_radio' , {}) ) ;
 app.get( '/image_split_slide' , ( req , res ) => res.render( 'image_split_slide' , {}) ) ;
+app.get( '/css_grid_layout' , ( req , res ) => res.render( 'css_grid_layout' , {}) ) ;
 
 /* Server */
 const server = app.listen( DIR.PORT , () => {
