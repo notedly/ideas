@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="/js/index.js"></script>
+	<link rel="stylesheet" href="/css/css_grid_layout.css">
+</head>
+<body>
+	<div class="btn">
+		button
+	</div>
+	<div class="gridWrap">
+		<div>box1</div>
+		<div>box2</div>
+		<div>box3</div>
+		<div>box4</div>
+		<div>box5</div>
+		<div>box6</div>
+		<div>box7</div>
+		<div>box8</div>
+		<div>box9</div>
+		<div>box10</div>
+		<div>box11</div>
+		<div>box12</div>
+		<div>box13</div>
+		<div>box14</div>
+		<div>box15</div>
+		<div>box16</div>
+		<div>box17</div>
+		<div>box18</div>
+		<div>box19</div>
+		<div>box20</div>
+		<div>box21</div>
+		<div>box22</div>
+		<div>box23</div>
+		<div>box24</div>
+		<div>box25</div>
+		<div>box26</div>
+		<div>box27</div>
+		<div>box28</div>
+		<div>box29</div>
+		<div>box30</div>
+		<div>box31</div>
+		<div>box32</div>
+		<div>box33</div>
+		<div>box34</div>
+		<div>box35</div>
+		<div>box36</div>
+		<div>box37</div>
+		<div>box38</div>
+		<div>box39</div>
+		<div>box40</div>
+		<div>box41</div>
+		<div>box42</div>
+		<div>box43</div>
+		<div>box44</div>
+		<div>box45</div>
+		<div>box46</div>
+		<div>box47</div>
+		<div>box48</div>
+		<div>box49</div>
+		<div>box50</div>
+		<div>box51</div>
+		<div>box52</div>
+		<div>box53</div>
+		<div>box54</div>
+		<div>box55</div>
+		<div>box56</div>
+		<div>box57</div>
+		<div>box58</div>
+		<div>box59</div>
+		<div>box60</div>
+		<div>box61</div>
+		<div>box62</div>
+		<div>box63</div>
+		<div>box64</div>
+		<div>box65</div>
+		<div>box66</div>
+		<div>box67</div>
+		<div>box68</div>
+		<div>box69</div>
+		<div>box70</div>
+		<div>box71</div>
+		<div>box72</div>
+		<div>box73</div>
+		<div>box74</div>
+		<div>box75</div>
+		<div>box76</div>
+		<div>box77</div>
+		<div>box78</div>
+		<div>box79</div>
+		<div>box80</div>
+		<div>box81</div>
+		<div>box82</div>
+		<div>box83</div>
+		<div>box84</div>
+		<div>box85</div>
+		<div>box86</div>
+		<div>box87</div>
+		<div>box88</div>
+		<div>box89</div>
+		<div>box90</div>
+		<div>box91</div>
+		<div>box92</div>
+		<div>box93</div>
+		<div>box94</div>
+		<div>box95</div>
+		<div>box96</div>
+		<div>box97</div>
+		<div>box98</div>
+		<div>box99</div>
+		<div>box100</div>
+	</div>
+
+	<!-- <div class="pageWrap">
+		<header>Header</header>
+		<article>
+			<h1>Hello World!</h1>
+			<p>Article content Article content</p>
+		</article>
+		<aside>Side bar</aside>
+		<footer>Footer</footer>
+	</div> -->
+
+
+	<script>
+	window.addEventListener('load', () => {
+		console.log( 'in' ) ;
+		let wrap = document.querySelector('.gridWrap') ;
+
+		let chk = false ;
+
+		document.querySelector('.btn').addEventListener('click', () => {
+			console.log( 'click in' , wrap ) ;
+			chk = !chk ;
+			chk ? wrap.style.gridGap = '20px' : wrap.style.gridGap = '10px';
+
+		})
+	}) ;
+	</script>
+
+</body>
+</html>
