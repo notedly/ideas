@@ -433,3 +433,73 @@ body {
 		}
 	}
 }
+
+
+
+.gridWrap2{
+	display : grid ;
+	grid-gap : 1em ;
+	grid-template-columns: repeat( 5 , [ col ] 100px ) ;
+	grid-template-rows: repeat( 3 , [ row ] auto ) ;
+	/*
+		그리드 columns, rows 를 지정할때 name을 지정해서 사용했었는데
+		repeat 안에서도 사용이 가능하다.
+	*/
+	> .box {
+
+		background-color: #333;
+		color:#fff;
+		padding:1em;
+		border-radius: 5px;
+		text-transform: uppercase;
+
+		&.a{
+			grid-column: col / span 2 ;
+			// col 부터 시작해서 내크기의 두개만큼 쓰겠다
+
+			grid-row: row ;
+		}
+		&.b{
+			grid-column: col 3 / span 3 ;
+		}
+		&.c{
+			grid-column: col ;
+			grid-row: 2 ;
+		}
+		&.d{
+			grid-column: col 2 / span 3 ;
+			grid-row: 2 ;
+		}
+		&.e{
+			grid-column: col / span 5 ;
+			grid-row: 3 ;
+
+			/*
+				grid-row 3으로 지정하면 F는 D 우측 빈공간으로 올라온다.
+				왜 ?
+				애초에 grid-template-rows: repeat( 3 , [ row ] auto ) ;
+				row를 3번째 행까지 쓴다고 지정했기 때문에
+				4행에 있는 F 요소를 빈공간이 생긴 두번째 행으로 옮긴것이다.
+			*/
+
+		}
+		&.f{
+			opacity: 0.5 ;
+			grid-column: col 3 / span 3 ;
+			// F에 컬럼을 주면 다시 E 아래로 떨어진다. D요소와 겹칠거라고 생각했는데 왜그런가? row를 지정해주지 않았기 때문에 ...
+
+			grid-row: 2 ;
+			// D와F에 row를 지정해주면 E위로 올라가면서 두개의 그리드가 겹치게된다.
+
+			background-color:red;
+			z-index: 20 ;
+
+			.quick{
+				background-color: purple;
+				padding: 4px;
+				position: sticky ; right: 0; top:0 ;
+			}
+		}
+	}
+}
+
