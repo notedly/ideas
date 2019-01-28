@@ -1,0 +1,40 @@
+@charset 'UTF-8' ;
+@import './ui/layout';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');
+
+html, body{
+	height : 100%;
+}
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.wrap{
+	position: relative;
+	width:100%; height:100%;
+	overflow: hidden;
+	ul {
+		width:400px;
+		height:600px;
+		overflow: auto;
+		margin:auto;
+		// scroll-snap-type: y mandatory;
+		-webkit-overflow-scrolling: touch;
+		// 일반적은 스크롤은 손가락 떼는 즉시 현재 위치에서 스크롤이 멈춘다.
+		// touch로 설정하면 가속도기반 스크롤이 적용된다. 스크롤을 뗀후에 일정시간동안 콘텐츠가 스크롤된다.
+		scroll-snap-type: y mandatory;
+		-webkit-scroll-snap-type: mandatory;
+		> li {
+			height:100%;
+			color:#fff;
+			scroll-snap-align: center;
+			&.box1{ background-color: indianred; }
+			&.box2{ background-color: antiquewhite; }
+			&.box3{ background-color: cornflowerblue; }
+			&.box4{ background-color: darkcyan; }
+			&.box5{ background-color: darkkhaki; }
+			&.box6{ background-color: indianred; }
+		}
+	}
+}
