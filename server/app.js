@@ -27,6 +27,7 @@ app.get( '/css_grid_layout' , ( req , res ) => res.render( 'css_grid_layout' , {
 app.get( '/css_grid_layout2' , ( req , res ) => res.render( 'css_grid_layout2' , {}) ) ;
 app.get( '/css_grid_layout4' , ( req , res ) => res.render( 'css_grid_layout4' , {}) ) ;
 app.get( '/css_grid_layout5' , ( req , res ) => res.render( 'css_grid_layout5' , {}) ) ;
+app.get( '/css_grid_layout6' , ( req , res ) => res.render( 'css_grid_layout6' , {}) ) ;
 
 /* Server */
 const server = app.listen( DIR.PORT , () => {

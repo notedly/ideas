@@ -503,3 +503,141 @@ body {
 	}
 }
 
+.gridWrap1{
+
+	display: grid ;
+	grid-gap: 20px;
+	grid-template-columns: repeat( 4, minmax( 150px, 1fr ) ) ;
+	// 한 행에 4개의 박스가 균등한크기로 나열되지만 최소크기가 150px 로 150px 보다 작아질 순없다.
+	grid-template-columns: repeat( auto-fill , minmax( 50px , 1fr ) ) ;
+
+	> div {
+		border: 1px solid #000;
+		padding: 1em;
+		font-weight: 700;
+		border-radius: 4px;
+		color:#fff;
+		&:nth-child(odd){
+			background-color: #444;
+		}
+		&:nth-child(even){
+			background-color: #666;
+		}
+	}
+}
+
+.gridWrap2{
+
+	display: grid ;
+	grid-gap: 20px;
+	grid-template-columns: repeat( auto-fit , minmax( 50px , 1fr ) ) ;
+
+	> div {
+		border: 1px solid #000;
+		padding: 1em;
+		font-weight: 700;
+		border-radius: 4px;
+		color:#fff;
+		&:nth-child(odd){
+			background-color: #444;
+		}
+		&:nth-child(even){
+			background-color: #666;
+		}
+	}
+}
+
+/*
+	auto-fill 과 auto-fit 의 차이점
+	auto-fill은 minmax 부분에서 최소값(우리의 경우 50px)이 들어갈 수 있는 공간을 일단 (가상으로라도) 다 채운 뒤에 채우지 못하는 부분(우리의 경우1~49px)을 아이템들이 나눠가지게 됩니다.(max부분이 1fr이기 때문입니다.)
+	auto-fit은 아이템의 갯수가 그리드 공간에 최대를 차지할 수 있게 채운 뒤에(max 값이 1fr을 우선 신경씁니다.) 공간이 작아져서 최소값(우리의 경우50px)을 유지못하게 될 때 아이템을 내리게 되는 것입니다.
+ */
+
+ .gridWrap3{
+ 	display: grid;
+ 	grid-gap: 20px;
+
+	border: 1px solid red;
+	width:700px; height:500px;
+
+	grid-template-columns: 150px 150px 150px;
+	grid-auto-rows: 50px;
+
+	// justify-content: center ;
+	// align-content: center;
+
+	// justify-content: space-between ;
+	// align-content: space-between ;
+
+	// 부모한테는 items로 내부 박스들의 위치를 설정할 수 있다.
+	// justify-items : start;
+	// justify-items : end;
+	// justify-items : center;
+
+
+ 	> div {
+ 		border: 1px solid #000;
+ 		padding: 1em;
+ 		font-weight: 700 ;
+ 		border-radius: 4px;
+ 		&:nth-child(odd){
+			background-color: #444;
+		}
+		&:nth-child(even){
+			background-color: #666;
+		}
+		&.box1{
+			grid-column: 1 / 3 ;
+			grid-row: 1 / 3 ;
+
+			// 자기 자신의 박스의 위치를 지정한다.
+			// justify-self:end;
+			// justify-self:start;
+			// justify-self:center;
+			// align-self:start;
+			// align-self:end;
+			// align-self:center;
+
+		}
+		&.box4{
+			grid-column: 1;
+			grid-row: 2 / 4 ;
+		}
+ 	}
+ }
+
+ .gridWrap4{
+ 	display: grid;
+ 	grid-gap: 20px;
+
+ 	grid-template-columns: 1fr 2fr ;
+ 	grid-template-rows: minmax( auto , 1fr ) ;
+
+ 	border:1px solid red;
+
+	direction: rtl;
+
+ 	.imgBox{
+ 		grid-column: 1 ;
+ 		grid-row: 1 / 3 ;
+ 		img{
+ 			width:100%; height:100%;
+ 		}
+ 	}
+ 	h3{
+
+ 	}
+ 	p{
+ 		position: relative;
+
+		direction: ltr;
+		text-align: right;
+
+ 		.icons{
+ 			position: absolute; right:0; top:0;
+			padding:10px;
+			background-color:blue;
+			color:#fff;
+ 		}
+ 	}
+ }
