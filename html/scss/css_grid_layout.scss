@@ -641,3 +641,92 @@ body {
  		}
  	}
  }
+
+
+ .cardWrap{
+
+	display: grid;
+	grid-gap: 10px;
+
+	grid-template-areas:
+	'tit'
+	'img'
+	'cont'
+	'ft' ;
+
+	border:1px solid #ccc;
+	padding:10px;
+
+ 	.imgWrap{
+ 		grid-area:img;
+ 		background-color: #333;
+ 		img{
+ 			width:100%;
+ 		}
+ 	}
+ 	.title{
+ 		grid-area:tit;
+ 		padding-bottom: 5px;
+ 		font-size:1.7em;
+ 	}
+ 	.cont{
+ 		grid-area:cont;
+ 		font-size:1em;
+ 	}
+ 	.footer{
+ 		grid-area:ft;
+ 		font-size:.8em;
+ 		background-color: #eee;
+ 	}
+
+	@media ( min-width : 600px ) {
+		grid-template-columns: 150px 3fr;
+		grid-template-rows: auto 1fr auto;
+		grid-template-areas:
+		'img tit'
+		'img cont'
+		'ft ft' ;
+	}
+
+	&.loading{
+		> * {
+			opacity: 0.5;
+			visibility: hidden;
+		}
+
+		/*
+			배경이미지는 여러개 적용할 수 있다.
+			radial-gradient도 있기때문에 원도 적용할 수 있다.
+		*/
+		background-image:
+		   linear-gradient( lightgray 150px , transparent 0 ) ,
+		   linear-gradient( lightgray 35px , transparent 0 ) ,
+		   linear-gradient( lightgray 100px , transparent 0 ) ,
+		   linear-gradient( lightgray 35px , transparent 0 )
+		  ;
+
+		/*
+			배경이미지를 여러개 적용 할수 있다는 건 position, size도 각 이미지별로 정할수있다는것
+			여러개 설정할 수있다.
+		*/
+		background-repeat: no-repeat;
+		background-position:
+			10px 10px ,
+			170px 10px ,
+			170px 60px ,
+			10px 170px
+
+		;
+
+		// size에도 calc를 사용할수있다!
+		background-size:
+			150px 100% ,
+			calc( 100% - 180px) 100% ,
+			calc( 100% - 180px) 100% ,
+			calc( 100% - 20px) 20px ,
+		;
+
+
+	}
+
+ }
